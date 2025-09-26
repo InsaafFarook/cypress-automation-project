@@ -24,14 +24,14 @@ describe('cy.origin() tests', () => {
             const providerURL = new URL(src)
             const providerOrigin = `${providerURL.protocol}//${providerURL.host}`
 
-        // Switch to provider origin and visit the iframe URL directly
-        cy.origin(providerOrigin, { args: { href: providerURL.href } }, ({ href }) => {
-            cy.visit(href) // now top-level is the provider page
-            cy.get('input[name="email"]').type('test@example.com')
-            cy.get('input[name="password"]').type('Secret123')
-            cy.get('button[type="submit"]').click()
-            // provider redirects back to app after success
-        })
+            // Switch to provider origin and visit the iframe URL directly
+            cy.origin(providerOrigin, { args: { href: providerURL.href } }, ({ href }) => {
+                cy.visit(href) // now top-level is the provider page
+                cy.get('input[name="email"]').type('test@example.com')
+                cy.get('input[name="password"]').type('Secret123')
+                cy.get('button[type="submit"]').click()
+                // provider redirects back to app after success
+            })
         })
 
     // Back on our app origin after redirect

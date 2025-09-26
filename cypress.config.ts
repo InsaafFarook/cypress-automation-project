@@ -7,7 +7,7 @@ export default defineConfig({
     },
     baseUrl: 'https://google.com',
     env: {
-      apiUrl: 'https://my-api-app.com'
+      apiUrl: 'https://petstore.swagger.io/#/'
     }
   },
 });

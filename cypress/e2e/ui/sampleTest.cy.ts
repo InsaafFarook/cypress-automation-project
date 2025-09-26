@@ -50,4 +50,23 @@ describe("Home Smoke", () => {
     // Back to original origin — can assert app shows logged-in state
     cy.contains('Dashboard').should('be.visible')
   })
+
+  /*
+  <app-root>
+  #shadow-root
+    <app-header>
+      #shadow-root
+        <button id="menu-btn">Menu</button>
+    </app-header>
+  </app-root>
+  */
+  it('shadow dom', () =>{
+    cy.get('app-root')
+      .shadow()
+      .find('app-header')
+      .shadow()
+      .find('#menu-btn')
+      .click()
+  })
+ 
 });
