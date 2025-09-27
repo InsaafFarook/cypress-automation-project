@@ -1,0 +1,7 @@
+{
+  "name": "Bolt",
+  "photoUrls": ["https://picsum.photos/200"],
+  "category": { "id": 1, "name": "dog" },
+  "tags": [{ "id": 101, "name": "Ghost" }],
+  "status": "available"
+}

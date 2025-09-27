@@ -5,9 +5,9 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://google.com',
+    baseUrl: 'https://www.saucedemo.com/',
     env: {
-      apiUrl: 'https://petstore.swagger.io/#/'
+      apiUrl: 'https://petstore.swagger.io/v2'
     }
   },
 });

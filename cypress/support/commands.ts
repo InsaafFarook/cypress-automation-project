@@ -41,3 +41,7 @@
 Cypress.Commands.add('getByTestId', (id: string) => {
   return cy.get(`[data-test-id="${id}"]`);
 });
+
+Cypress.Commands.add('getDataTest', (id: string) => {
+  return cy.get(`[data-test="${id}"]`);
+});

@@ -18,3 +18,13 @@ import 'cypress-axe';   // adds cy.injectAxe, cy.checkA11y, cy.configureAxe
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+import 'cypress-xpath'
+
+Cypress.on('uncaught:exception', (err) => {
+  // Only swallow the generic cross-origin error
+  if (err && /Script error\.?/.test(err.message || '')) {
+    return false;  // prevent Cypress from failing the test
+  }
+  // Let other errors fail the test
+});

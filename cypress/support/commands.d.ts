@@ -7,6 +7,7 @@ declare namespace Cypress {
      * @example cy.getByTestId('login-button')
      */
     getByTestId(id: string): Chainable;
+    getDataTest(id: string): Chainable;
   }
 }
 
