@@ -21,6 +21,8 @@ import './commands'
 
 import 'cypress-xpath'
 
+import 'cypress-real-events/support'
+
 Cypress.on('uncaught:exception', (err) => {
   // Only swallow the generic cross-origin error
   if (err && /Script error\.?/.test(err.message || '')) {
