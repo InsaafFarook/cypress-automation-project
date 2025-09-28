@@ -58,6 +58,14 @@ describe('Day 2 Tests', ()=> {
         }
     })
 
+    it("window test", () => {
+        cy.visit('https://the-internet.herokuapp.com/windows')
+        cy.contains('a', 'Click Here').invoke('removeAttr', 'target').click()
+
+        cy.url().should('include', 'windows/new')
+        cy.contains('New Window').should('be.visible')
+    })
+
     // it('images are loaded (not broken)', () => {
     //     cy.contains('Broken Images').click()
     //     cy.url().should('include', '/broken_images')

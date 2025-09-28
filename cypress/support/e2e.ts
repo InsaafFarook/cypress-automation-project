@@ -30,3 +30,11 @@ Cypress.on('uncaught:exception', (err) => {
   }
   // Let other errors fail the test
 });
+
+Cypress.Commands.add('getIframeBody', (selector: string) => {
+  return cy
+    .get(selector)
+    .its('0.contentDocument.body')
+    .should('not.be.empty')
+    .then(cy.wrap);
+});
