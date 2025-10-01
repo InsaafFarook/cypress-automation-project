@@ -79,4 +79,17 @@ describe('Day 2 Tests', ()=> {
     //     });
     // });
 
+    it('File Download', ()=> {
+        cy.contains('a', 'File Download').click()
+        cy.url().should('include', 'download')
+
+        cy.intercept('GET', '**/download/upload-me.txt').as('download');
+        cy.contains('upload-me.txt').click()
+
+        cy.wait('@download').its('response.statusCode').should('eq', 200);
+        cy.readFile('cypress/downloads/upload-me.txt').should('contain', 'non-empty text file')
+        cy.readFile('cypress/downloads/upload-me.txt', 'binary').should((data)=> {
+            expect(data.length).to.be.greaterThan(0)
+        })
+    })
 })

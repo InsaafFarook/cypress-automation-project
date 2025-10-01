@@ -46,7 +46,11 @@ describe('Shadow Dom Tests', () => {
 
         cy.get('#enableAfter').should('not.be.enabled')
         cy.get('#visibleAfter').should('not.exist')
-
+        cy.get('#colorChange').invoke('css','color').then((color) => {
+            console.log(color)
+            expect(color).to.be.eq('rgb(255, 255, 255)')
+        })
+        
         cy.tick(4000)
         cy.get('#enableAfter').should('not.be.enabled')
         cy.get('#visibleAfter').should('not.exist')
