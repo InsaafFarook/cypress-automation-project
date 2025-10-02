@@ -45,3 +45,11 @@ Cypress.Commands.add('getByTestId', (id: string) => {
 Cypress.Commands.add('getDataTest', (id: string) => {
   return cy.get(`[data-test="${id}"]`);
 });
+
+Cypress.Commands.add('getIframeBody', (selector: string) => {
+  return cy
+    .get(selector)
+    .its('0.contentDocument.body')
+    .should('not.be.empty')
+    .then(cy.wrap);
+});

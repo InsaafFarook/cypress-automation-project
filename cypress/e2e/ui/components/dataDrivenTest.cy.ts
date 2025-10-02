@@ -1,19 +1,22 @@
-describe('Login for multiple users', () => {
-  let users: Array<{email: string; password: string; name: string}> = [];
+const users = require('../../../fixtures/users.json');
 
-  before(() => {
-    cy.fixture('users.json').then((data) => users = data);
-  });
+describe('Sample testing', () => {
 
-  users?.forEach((u) => {
-    it(`logs in as ${u.name}`, () => {
-      cy.visit('/');
-      cy.get('email').type(u.email);
-      cy.get('password').type(u.password);
-      cy.get('login-button').click();
+    users.forEach((u: any) => {
+        it(`Login as ${u.name}`, () => {
+             cy.log(`${u.name}-${u.email}-${u.password}`)
+        })
+    })
 
-      cy.get('greeting').should('contain', u.name);
-      cy.contains('Logout').should('be.visible');
-    });
-  });
-});
+})
+
+describe('Sample Test 2', () => {
+
+    it('Test 2', ()=> {
+
+        cy.fixture('users.json').then((user) => {
+            const u = user[0]
+            cy.log(`${u.name}-${u.email}-${u.password}`)
+        })
+    })
+})

@@ -4,6 +4,6 @@ export class HomePage {
   }
 
   verifySeachAreaIsDisplayed() {
-    return cy.get("[name='q']").should('be.visible');
+    cy.getDataTest("username").should('be.visible');
   }
 }

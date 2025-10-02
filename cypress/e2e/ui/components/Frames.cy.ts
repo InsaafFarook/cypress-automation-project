@@ -2,10 +2,12 @@ describe("Frames Tests", () => {
 
     it("Ifram Testing", () => {
         cy.visit("https://demoqa.com/frames")
-        cy.get('#frame1')
-            .its('0.contentDocument.body')
-            .should('not.be.empty')
-            .then(cy.wrap).as('frame1Body')
+        // cy.get('#frame1')
+        //     .its('0.contentDocument.body')
+        //     .should('not.be.empty')
+        //     .then(cy.wrap).as('frame1Body')
+
+        cy.getIframeBody('#frame1').as('frame1Body')    
 
         cy.get('@frame1Body').find('#sampleHeading').should('have.text', 'This is a sample page')
     })

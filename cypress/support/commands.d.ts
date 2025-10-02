@@ -8,6 +8,7 @@ declare namespace Cypress {
      */
     getByTestId(id: string): Chainable;
     getDataTest(id: string): Chainable;
+    getIframeBody(selector: string): Chainable;
   }
 }
 
