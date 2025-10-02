@@ -1,4 +1,4 @@
-import { HomePage } from "../../poms/HomePage";
+import { HomePage } from "../../../poms/HomePage";
 
 describe("Home Smoke", () => {
   const home = new HomePage();

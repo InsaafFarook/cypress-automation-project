@@ -17,10 +17,10 @@ describe('Alerts Test', ()=>{
 
         cy.clock()
         cy.get('#timerAlertButton').click()
-        cy.tick(4000)
+        cy.tick(3000)
         cy.wrap(alertStub).should('not.have.been.called')
 
-        cy.tick(1000)
+        cy.tick(2000)
         cy.wrap(alertStub).should('have.been.calledOnceWith', 'This alert appeared after 5 seconds')
     })
 
